@@ -16,6 +16,10 @@ import java.util.List;
 
 public class Anagrams {
 
+    public	ArrayList<ArrayList<String>> finalList = new  ArrayList<>();
+    public 	ArrayList<String> subList = new  ArrayList<>();
+
+
     public static boolean areTheWordsAnagrams(String word1, String word2) {
         boolean result = false;
         String[] charWord1 = word1.split("");
@@ -34,32 +38,39 @@ public class Anagrams {
         return result;
     }
 
-    public static ArrayList<ArrayList<String>> groupTheSameWords(ArrayList<String> input){
-        ArrayList<ArrayList<String>> output = new ArrayList<>();
+    public  ArrayList<ArrayList<String>> groupTheSameWords(ArrayList<String> input){
+//        ArrayList<ArrayList<String>> output = new ArrayList<>();
             for (String word: input ) {
-                ArrayList<String> firstWord = new ArrayList<>();
+                if(!subList.contains(word) && !finalList.stream().anyMatch(e ->e.contains(word))) {
+                    subList = new ArrayList<>();
+                    subList.add(word);
+//                ArrayList<String> firstWord = new ArrayList<>();
 
+                    int i = 0;
+                 i =   i < input.size() ? input.indexOf(word) + 1 : input.indexOf(word);
+                    while (i < input.size()) {
+                        if (areTheWordsAnagrams(word, input.get(i))) {
+                            this.subList.add(input.get(i));
+                            i++;
+                        }else{
 
+                        i++;
+                        }
 
-                for(int i = input.indexOf(word) + 1 ; i <= input.size() -1;i++){
-                    if(areTheWordsAnagrams(word, input.get(i))){
-                        firstWord.add(word);
-                        firstWord.add(input.get(i));
-
-                    }else{
-//                        firstWord.add();
                     }
+                finalList.add(subList);
                 }
 
-                output.add(firstWord);
             }
 
-            return output;
+            return finalList;
 
     }
 
 
     public static void main(String[] args) {
+
+        Anagrams anagrams = new Anagrams();
         String word1 = "ilokv5eyou";
         String word2 = "y5iolouvKe";
 
@@ -72,12 +83,12 @@ public class Anagrams {
         System.out.println("-------------------------------");
 
         ArrayList<String> hd = new ArrayList<>();
-        hd.add("tar");
         hd.add("meats");
-//        hd.add("steam");
+        hd.add("tar");
+        hd.add("steam");
         hd.add("art");
         hd.add("rat");
-        System.out.println(groupTheSameWords(hd));
+        System.out.println(anagrams.groupTheSameWords(hd));
 
 
 
