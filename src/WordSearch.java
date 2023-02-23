@@ -35,6 +35,6 @@ public class WordSearch {
 
         System.out.println("----------------------------------");
 
-        System.out.println(isTheStringContainsWord("I’m the new newt" , "IF"));
+        System.out.println(isTheStringContainsWord("F f gf" , "f"));
     }
 }

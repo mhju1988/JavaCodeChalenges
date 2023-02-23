@@ -87,9 +87,11 @@ public class Anagrams {
         ArrayList<String> hd = new ArrayList<>();
         hd.add("meats");
         hd.add("tar");
-        hd.add("steam");
+        hd.add("me");
         hd.add("art");
         hd.add("rat");
+        hd.add("em");
+        hd.add("steam");
         System.out.println(anagrams.groupTheSameWords(hd));
 
 
