@@ -2,8 +2,8 @@ import java.util.*;
 
 public class WordReversal {
 
-    private final List<Character> nonLetterOrDigits = new ArrayList<>();
-    private final List<Integer> indesiesOfPunctuation = new ArrayList<>();
+    private  List<Character> nonLetterOrDigits = new ArrayList<>();
+    private  List<Integer> indesiesOfPunctuation = new ArrayList<>();
 
     public static void main(String[] args) {
 
@@ -12,6 +12,8 @@ public class WordReversal {
         String input = "Codecademy, is the best.";
         System.out.println(wordReversal.finalMethod(input));
         System.out.println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><");
+
+        System.out.println(wordReversal.finalMethod("0.56"));
 
 
 
@@ -106,6 +108,7 @@ public class WordReversal {
 
 
         }
+        this.nonLetterOrDigits = new ArrayList<>();
         return output.toString();
     }
 
